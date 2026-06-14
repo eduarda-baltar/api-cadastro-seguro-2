@@ -1,10 +1,10 @@
-# 🔒 API de Autenticação Segura (Node.js + MySQL)
+#  API de Autenticação Segura (Node.js + MySQL)
 
 Projeto prático desenvolvido para aplicar conceitos essenciais de **Desenvolvimento Seguro (DevSecOps)** e mitigar falhas comuns de cibersegurança (OWASP Top 10).
 
 ---
 
-## 🛡️ Implementações de Segurança
+##  Implementações de Segurança
 
 * **Criptografia de Senhas (Bcrypt):** As senhas passam por hashing criptográfico com *Salt* (fator de custo 10) antes de irem para o banco. Nunca são salvas em texto limpo.
 * **Proteção contra SQL Injection:** Uso de consultas preparadas (*Prepared Statements* com `?`) no driver `mysql2`, separando a estrutura da query dos dados do usuário.
@@ -16,7 +16,7 @@ Projeto prático desenvolvido para aplicar conceitos essenciais de **Desenvolvim
 
 ---
 
-## 📦 Como Executar
+##  Como Executar
 
 1. **Instale as dependências:**
    ```bash
