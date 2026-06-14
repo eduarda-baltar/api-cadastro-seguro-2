@@ -12,6 +12,7 @@ Projeto prático desenvolvido para aplicar conceitos essenciais de **Desenvolvim
 * **Defesa de Enumeração:** Mensagens de erro genéricas (`"E-mail ou senha incorretos!"`) para impedir que atacantes adivinhem quais e-mails estão cadastrados.
 * **Controle de Tráfego (Rate Limiting):** Proteção ativa contra ataques de força bruta, limitando a 5 requisições por IP a cada 15 minutos nas rotas sensíveis.
 * **Emissão de Tokens Seguros (JWT):** Geração de JSON Web Tokens no login para gerenciar a sessão do usuário de forma stateless e segura.
+* **Rotas Protegidas (Middleware):** Validação de acesso a recursos restritos baseada na verificação da assinatura do JWT enviado nas requisições.
 
 ---
 

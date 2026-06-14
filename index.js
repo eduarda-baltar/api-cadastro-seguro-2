@@ -23,6 +23,23 @@ const pool = mysql.createPool({
     database: process.env.DB_NAME,
 });
 
+const verificarToken = (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+
+    if (!token) {
+        return res.status(401).json({ erro: 'Acesso negado! Token não fornecido.' });
+    }
+
+    try {
+        const verificado = jwt.verify(token, process.env.JWT_SECRET);
+        req.usuario = verificado;
+        next(); 
+    } catch (erro) {
+        res.status(403).json({ erro: 'Token inválido ou expirado.' });
+    }
+};
+
 app.post('/cadastro', limitadorSeguranca, async (req, res) => {
     const { email, senha } = req.body;
 
@@ -91,6 +108,14 @@ app.post('/login', limitadorSeguranca, async (req, res) => {
     } catch (erro) {
         res.status(500).json({ erro: 'Erro ao processar o login.' });
     }
+});
+
+app.get('/perfil', verificarToken, (req, res) => {
+    res.json({
+        mensagem: 'Bem-vindo ao seu perfil privado!',
+        seu_id_no_banco: req.usuario.id,
+        dica: 'Essa rota só responde porque você enviou um JWT válido.'
+    });
 });
 
 const PORT = process.env.PORT || 3000;
