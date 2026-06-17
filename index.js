@@ -10,8 +10,6 @@ const app = express();
 app.use(cors()); 
 app.use(express.json());
 
-const app = express();
-app.use(express.json()); 
 
 const limitadorSeguranca = rateLimit({
     windowMs: 15 * 60 * 1000, 
