@@ -4,6 +4,11 @@ const mysql = require('mysql2');
 const bcrypt = require('bcrypt');
 const rateLimit = require('express-rate-limit');
 const jwt = require('jsonwebtoken');
+const cors = require('cors'); 
+
+const app = express();
+app.use(cors()); 
+app.use(express.json());
 
 const app = express();
 app.use(express.json()); 
